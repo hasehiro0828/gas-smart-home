@@ -1,6 +1,37 @@
+import Api from "./api";
+import SpreadsheetService from "./spreadsheetService";
+import Utils from "./utils";
+
+const SHEET_NAME = "データ記録";
+
 // eslint-disable-next-line no-unused-vars
 const main = (): void => {
-  console.log("hello");
+  const getSpreadsheetService = (sheetName: string): SpreadsheetService | null => {
+    try {
+      return new SpreadsheetService(sheetName);
+    } catch (error) {
+      Logger.log(error);
+      return null;
+    }
+  };
+
+  const ACCESS_TOKEN = PropertiesService.getScriptProperties().getProperty("NATURE_ACCESS_TOKEN");
+  if (!ACCESS_TOKEN) {
+    Logger.log("NATURE_ACCESS_TOKEN が設定されていません");
+    return;
+  }
+
+  const spreadsheetService = getSpreadsheetService(SHEET_NAME);
+  if (!spreadsheetService) return;
+
+  const api = new Api(ACCESS_TOKEN);
+
+  const deviceInfos = api.getDeviceInfos();
+  const acInfo = api.getACInfo();
+
+  const createdAtString = Utils.getFormattedDate(new Date(deviceInfos[0].updated_at));
+
+  spreadsheetService.appendRow(acInfo.settings.temp, deviceInfos[0].newest_events.te.val, createdAtString);
 };
 
 // eslint-disable-next-line no-unused-vars
