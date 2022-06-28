@@ -17,6 +17,6 @@ const getProperties = (): void => {
 
   // eslint-disable-next-line no-restricted-syntax, guard-for-in
   for (const key in properties) {
-    Logger.log("キー: %s, 値: %s", key, properties[key]);
+    Logger.log(`キー: ${key}, 値: ${properties[key]}`);
   }
 };
