@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# clasp の設定ファイル
+.clasp.json
+
+# VSCode の Local History
+.history
