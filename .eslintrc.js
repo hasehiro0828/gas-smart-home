@@ -4,6 +4,9 @@ module.exports = {
     es2021: true,
     "googleappsscript/googleappsscript": true,
   },
+  globals: {
+    GoogleAppsScript: true,
+  },
   extends: ["airbnb-base", "plugin:import/typescript", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
