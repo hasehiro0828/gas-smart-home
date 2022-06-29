@@ -29,9 +29,10 @@ const main = (): void => {
   const deviceInfos = api.getDeviceInfos();
   const acInfo = api.getACInfo();
 
-  const createdAtString = Utils.getFormattedDate(new Date(deviceInfos[0].updated_at));
+  const createdAtString = Utils.getFormattedDate(new Date(deviceInfos[0].newest_events.te.created_at));
+  const nowString = Utils.getFormattedDate(new Date());
 
-  spreadsheetService.appendRow(acInfo.settings.temp, deviceInfos[0].newest_events.te.val, createdAtString);
+  spreadsheetService.appendRow(acInfo.settings.temp, deviceInfos[0].newest_events.te.val, createdAtString, nowString);
 };
 
 // eslint-disable-next-line no-unused-vars

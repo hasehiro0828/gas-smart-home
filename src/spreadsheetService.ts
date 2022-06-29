@@ -13,8 +13,8 @@ class SpreadsheetService {
     this.sheet = sheet;
   }
 
-  appendRow(acSettingTemp: string, temp: number, dateString: string): void {
-    this.sheet.appendRow(["=ROW()-1", acSettingTemp, temp.toString(), dateString]);
+  appendRow(acSettingTemp: string, temp: number, createdAtString: string, nowString: string): void {
+    this.sheet.appendRow(["=ROW()-1", acSettingTemp, temp.toString(), createdAtString, nowString]);
   }
 }
 
