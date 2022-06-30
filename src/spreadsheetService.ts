@@ -19,10 +19,13 @@ class SpreadsheetService {
   appendRow(deviceInfo: DeviceInfo, acInfo: ACInfo): void {
     const createdAtString = Utils.getFormattedDate(new Date(deviceInfo.newest_events.te.created_at));
     const nowString = Utils.getFormattedDate(new Date());
+    const power = acInfo.settings.button === "power-off" ? "OFF" : "ON";
 
-    // [id, エアコン設定温度, 室温, センサー取得日時, 関数実行日時, deviceInfoJson, acInfoJson]
+    // [id, エアコン電源, エアコンモード, エアコン設定温度, 室温, センサー取得日時, 関数実行日時, deviceInfoJson, acInfoJson]
     this.sheet.appendRow([
       "=ROW()-1",
+      power,
+      acInfo.settings.mode,
       acInfo.settings.temp,
       deviceInfo.newest_events.te.val.toString(),
       createdAtString,

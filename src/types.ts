@@ -27,11 +27,11 @@ export interface ACInfo {
   settings: {
     temp: string;
     temp_unit: string;
-    mode: string;
+    mode: "auto" | "blow" | "cool" | "dry" | "warm";
     vol: string;
     dir: string;
     dirh: string;
-    button: string;
+    button: "power-off" | "";
     updated_at: Date;
   };
 }
