@@ -20,13 +20,15 @@ class SpreadsheetService {
     const createdAtString = Utils.getFormattedDate(new Date(deviceInfo.newest_events.te.created_at));
     const nowString = Utils.getFormattedDate(new Date());
 
-    // [id, エアコン設定温度, 室温, センサー取得日時, 関数実行日時]
+    // [id, エアコン設定温度, 室温, センサー取得日時, 関数実行日時, deviceInfoJson, acInfoJson]
     this.sheet.appendRow([
       "=ROW()-1",
       acInfo.settings.temp,
       deviceInfo.newest_events.te.val.toString(),
       createdAtString,
       nowString,
+      JSON.stringify(deviceInfo),
+      JSON.stringify(acInfo),
     ]);
   }
 }
