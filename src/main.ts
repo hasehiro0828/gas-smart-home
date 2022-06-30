@@ -1,6 +1,5 @@
 import Api from "./api";
 import SpreadsheetService from "./spreadsheetService";
-import Utils from "./utils";
 
 const SHEET_NAME = "データ記録";
 
@@ -29,10 +28,7 @@ const main = (): void => {
   const deviceInfos = api.getDeviceInfos();
   const acInfo = api.getACInfo();
 
-  const createdAtString = Utils.getFormattedDate(new Date(deviceInfos[0].newest_events.te.created_at));
-  const nowString = Utils.getFormattedDate(new Date());
-
-  spreadsheetService.appendRow(acInfo.settings.temp, deviceInfos[0].newest_events.te.val, createdAtString, nowString);
+  spreadsheetService.appendRow(deviceInfos[0], acInfo);
 };
 
 // eslint-disable-next-line no-unused-vars
