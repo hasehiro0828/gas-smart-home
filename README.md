@@ -1,3 +1,3 @@
-# gas-nature-remo
+# gas-smart-home
 
-GAS で Nature Remo からのデータを記録する
+GAS で Nature Remo や SwitchBot からのデータを記録する
