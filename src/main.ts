@@ -4,6 +4,7 @@ import SpreadsheetService from "./spreadsheetService";
 const SHEET_NAME = "データ記録";
 const PROPERTY_KEYS = {
   NATURE_ACCESS_TOKEN: "NATURE_ACCESS_TOKEN",
+  SWITCH_BOT_ACCESS_TOKEN: "SWITCH_BOT_ACCESS_TOKEN",
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -37,8 +38,13 @@ const main = (): void => {
 // eslint-disable-next-line no-unused-vars
 const setProperties = (): void => {
   // // NATURE_ACCESS_TOKEN に サイトで発行した access_token を set する
+  // // SWITCH_BOT_ACCESS_TOKEN に アプリで発行した access_token を set する
+  //
   // const properties: { [key: string]: string } = {};
+  //
   // properties[PROPERTY_KEYS.NATURE_ACCESS_TOKEN] = "{{access_token}}";
+  // properties[PROPERTY_KEYS.SWITCH_BOT_ACCESS_TOKEN] = "{{access_token}}";
+  //
   // const scriptProperties = PropertiesService.getScriptProperties();
   // scriptProperties.setProperties(properties);
 };
