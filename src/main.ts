@@ -2,6 +2,9 @@ import Api from "./api";
 import SpreadsheetService from "./spreadsheetService";
 
 const SHEET_NAME = "データ記録";
+const PROPERTY_KEYS = {
+  NATURE_ACCESS_TOKEN: "NATURE_ACCESS_TOKEN",
+};
 
 // eslint-disable-next-line no-unused-vars
 const main = (): void => {
@@ -14,9 +17,9 @@ const main = (): void => {
     }
   };
 
-  const ACCESS_TOKEN = PropertiesService.getScriptProperties().getProperty("NATURE_ACCESS_TOKEN");
+  const ACCESS_TOKEN = PropertiesService.getScriptProperties().getProperty(PROPERTY_KEYS.NATURE_ACCESS_TOKEN);
   if (!ACCESS_TOKEN) {
-    Logger.log("NATURE_ACCESS_TOKEN が設定されていません");
+    Logger.log(`${PROPERTY_KEYS.NATURE_ACCESS_TOKEN} が設定されていません`);
     return;
   }
 
@@ -34,8 +37,10 @@ const main = (): void => {
 // eslint-disable-next-line no-unused-vars
 const setProperties = (): void => {
   // // NATURE_ACCESS_TOKEN に サイトで発行した access_token を set する
+  // const properties: { [key: string]: string } = {};
+  // properties[PROPERTY_KEYS.NATURE_ACCESS_TOKEN] = "{{access_token}}";
   // const scriptProperties = PropertiesService.getScriptProperties();
-  // scriptProperties.setProperties({ NATURE_ACCESS_TOKEN: "{{access_token}}" });
+  // scriptProperties.setProperties(properties);
 };
 
 // eslint-disable-next-line no-unused-vars
