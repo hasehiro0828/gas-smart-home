@@ -1,4 +1,4 @@
-import Api from "./api";
+import NatureApi from "./natureApi";
 import SpreadsheetService from "./spreadsheetService";
 
 const SHEET_NAME = "データ記録";
@@ -27,10 +27,10 @@ const main = (): void => {
   const spreadsheetService = getSpreadsheetService(SHEET_NAME);
   if (!spreadsheetService) return;
 
-  const api = new Api(ACCESS_TOKEN);
+  const natureApi = new NatureApi(ACCESS_TOKEN);
 
-  const deviceInfos = api.getDeviceInfos();
-  const acInfo = api.getACInfo();
+  const deviceInfos = natureApi.getDeviceInfos();
+  const acInfo = natureApi.getACInfo();
 
   spreadsheetService.appendRow(deviceInfos[0], acInfo);
 };

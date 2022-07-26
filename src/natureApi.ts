@@ -1,6 +1,6 @@
 import { ACInfo, DeviceInfo } from "./types";
 
-class Api {
+class NatureApi {
   accessToken: string;
 
   constructor(accessToken: string) {
@@ -31,4 +31,4 @@ class Api {
   }
 }
 
-export default Api;
+export default NatureApi;
